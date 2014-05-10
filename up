@@ -1,0 +1,63 @@
+#!/bin/bash
+noidung="=========================================================================
+Danh sach Update chuong trinh, ban muon lam gi vui long chon
+=========================================================================
+ 1) Update yton                        14) Update demo1
+ 2) Update y61                         15) Update demo
+ 3) Update api                         16) Update php_demo
+ 4) Update hmis                        17) Update yms
+ 5) Update igate                       18) Update tool
+ 6) Update data                        19) Update landing
+ 7) Update tdl                         20) Update facebook
+ 8) Update sms                         21) Update cham soc suc khoe chu dong
+ 9) Update tst                         22) Update Dự Án YTON
+10) Update pmu                         23) Update Ho Tro
+11) Update office                      24) Update Nibe
+12) Update hspx                        25) Update moodle
+13) Update hmis2                       26) Thoat
+"
+prompt="Nhap vao lua chon cua ban:"
+options=("Update yton" "Update y61" "Update api" "Update hmis" "Update igate" "Update data" "Update tdl" "Update sms" "Update tst" "Update pmu" "Update office" "Update hspx" "Update hmis2" "Update demo1" "Update demo" "Update php_demo" "Update yms" "Update tool" "Update landing" "Update facebook" "Update cham soc suc khoe chu dong" "Update Dự Án YTON" "Update Ho Tro" "Update Nibe" "Update moodle")
+
+printf "=========================================================================\n"
+printf "Danh sach Update chuong trinh, ban muon lam gi vui long chon \n"
+printf "=========================================================================\n"
+PS3="$prompt"
+select opt in "${options[@]}" "Thoat"; do
+
+    case "$REPLY" in
+
+    1 ) svn update /var/www/html/ytonie; svn update /var/www/html/yton; echo "$noidung";;
+    2 ) svn update /var/www/html/y611; echo "$noidung";;
+    3 ) svn update /var/www/html/api/mobiles; echo "$noidung";;
+    4 ) svn update /var/www/html/hmis; echo "$noidung";;
+    5 ) svn update /var/www/html/igate; echo "$noidung";;
+    6 ) svn update /var/www/html/data1; echo "$noidung";;
+    7 ) svn update /var/www/html/tdl; echo "$noidung";;
+    8 ) svn update /var/www/html/sms; echo "$noidung";;
+    9 ) svn update /var/www/html/tst/igate; echo "$noidung";;
+    10 ) svn update /var/www/html/pmu; echo "$noidung";;
+    11 ) svn update /var/www/html/office; echo "$noidung";;
+    12 ) svn update /var/www/html/hspx; echo "$noidung";;
+    13 ) svn update /var/www/html/hmis2; echo "$noidung";;
+    14 ) svn update /var/www/html/demo1; echo "$noidung";;
+    15 ) svn update /var/www/html/demo; echo "$noidung";;
+    16 ) svn update /var/www/html/php_demo; echo "$noidung";;
+    17 ) svn update /var/www/html/yms; echo "$noidung";;
+    18 ) svn update /var/www/html/tool; echo "$noidung";;
+    19 ) svn update /var/www/html/landing; echo "$noidung";;
+    20 ) svn update /var/www/html/facebook; echo "$noidung";;
+    21 ) svn update /var/www/html/csskcd; echo "$noidung";;
+    22 ) svn update /var/www/html/yton6; echo "$noidung";;
+	23 ) svn update /var/www/html/hotro; echo "$noidung";;
+	24 ) svn update /var/www/html/nibe; echo "$noidung";;
+	25 ) svn update /var/www/html/moodle; echo "$noidung";;
+
+
+
+    $(( ${#options[@]}+1 )) ) echo "Chao tam biet!"; break;;
+    *) echo "Ban nhap sai, vui long nhap theo so thu tu tren danh sach";continue;;
+
+    esac
+
+done
