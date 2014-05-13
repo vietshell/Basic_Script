@@ -23,7 +23,7 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do
 case "$REPLY" in
 1 ) sh $thumuc/bond_config; echo "$noidung";;
-2 ) sh $thumuc/interface_config; echo "$noidung";;
+2 ) sh $thumuc/bond_interface; echo "$noidung";;
 
 $(( ${#options[@]}+1 )) ) echo "Chao tam biet!"; break;;
 *) echo "Ban nhap sai, vui long nhap theo so thu tu tren danh sach";continue;;
