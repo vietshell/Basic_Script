@@ -6,6 +6,7 @@
 #  Created by HSP SI Viet Nam on 5/6/14.
 #
 clear
+tf=`echo $0`
 ip link show | grep BROADCAST,MULTICAST | awk '{print $2}' | sed 's/://' > list_allinterface.txt
 for interface in $( cat list_allinterface.txt );
 do ipadd=`/sbin/ifconfig $interface | grep inet | awk '{print $2}' | sed 's/addr://'`
@@ -89,7 +90,7 @@ eof
 echo "reset network interface"
 echo "please waiting 3s ...."
 ifdown $name && ifup $name
-sh setup_interface.sh
+sh $tf
 exit 1
 fi
 
@@ -133,7 +134,7 @@ eof
 echo "reset network interface"
 echo "please waiting 3s ...."
 ifdown $name && ifup $name
-sh setup_interface.sh
+sh $tf
 exit 1
 fi
 
@@ -157,6 +158,6 @@ eof
 echo "reset network interface"
 echo "please waiting 3s ...."
 ifdown $name && ifup $name
-sh setup_interface.sh
+sh $tf
 exit 1
 
