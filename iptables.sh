@@ -66,7 +66,7 @@ $IPTABLES -t nat -A FORWARD -s $inside_allow -o $outside -j ACCEPT
 #filter
 -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
 -A INPUT -p tcp -m tcp --sport 22 -j ACCEPT
--A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -d 192.168.1.69/32 -p tcp -m tcp --dport 80 -j ACCEPT
 -A FORWARD -s 192.168.1.69/32 -o eth0 -j DROP
 -A FORWARD -d 192.168.1.96/32 -p tcp -m tcp --dport 8080 -j ACCEPT
@@ -78,5 +78,8 @@ $IPTABLES -t nat -A FORWARD -s $inside_allow -o $outside -j ACCEPT
 
 
 
-
+alter system set sga_target=1536M scope=spfile;
+alter system set pga_aggregate_target=1537M scope=spfile;
+alter system set memory_target=0 scope=spfile;
+alter system set memory_max_target=0 scope=spfile;
 
